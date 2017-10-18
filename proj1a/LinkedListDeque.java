@@ -109,6 +109,17 @@ public class LinkedListDeque <Item> {
             return p.item;
         }
     }
+    public Item getRecursice(int index){
+        if(index>=size || index < 0) return null;
+        return getRecursive(sentinal, index);
+    }
+    private Item getRecursive(Node p, int index){
+        if(index == 0){
+            return p.next.item;
+        }else{
+            return getRecursive(p.next, index - 1);
+        }
+    }
     private Node scrollBack(int index){
         Node p = sentinal.prev;
         while(index>0){
