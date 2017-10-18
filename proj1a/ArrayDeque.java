@@ -8,7 +8,7 @@ public class ArrayDeque<Item> {
     private int first;
     private int last;
 
-    public ArrayDeque(){
+    public ArrayDeque() {
         list = (Item[]) new Object[2];
         size = 0;
         first = 0;
@@ -20,37 +20,41 @@ public class ArrayDeque<Item> {
     * */
 
     /**Adds an item to the front of the Deque.**/
-    public void addFirst(Item y){
+    public void addFirst(Item y) {
         checksize();
-        if(isEmpty()){
+        if (isEmpty()) {
             //initialise
             list[0] = y;
+            first = 0;
+            last = 0;
 
-        }else {
+        } else {
             first = moveIndexLeft(first);
             list[first] = y;
         }
         size++;
     }
     /**Adds an item to the back of the Deque.**/
-    public void addLast(Item y){
+    public void addLast(Item y) {
         checksize();
-        if(isEmpty()){
+        if (isEmpty()) {
             //initialise
             list[0] = y;
+            first = 0;
+            last = 0;
 
-        }else {
+        } else {
             last = moveIndexRight(last);
             list[last] = y;
         }
         size++;
     }
     /**Returns true if deque is empty, false otherwise.**/
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return (size == 0);
     }
     /**Returns the number of items in the Deque.**/
-    public int size(){
+    public int size() {
         return size;
     }
     /**Prints the items in the Deque from first to last, separated by a space.**/
