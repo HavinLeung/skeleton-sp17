@@ -109,7 +109,7 @@ public class LinkedListDeque <Item> {
             return p.item;
         }
     }
-    public Item getRecursice(int index){
+    public Item getRecursive(int index){
         if(index>=size || index < 0) return null;
         return getRecursive(sentinal, index);
     }
