@@ -10,15 +10,15 @@ public class Main {
         System.out.println(Palindrome.isPalindrome("a"));                   //true
         System.out.println(Palindrome.isPalindrome("abcdeffedcba"));        //true
         System.out.println(Palindrome.isPalindrome("abcdefghfedcba"));      //false
-        System.out.println(Palindrome.isPalindrome("abcdefgfedcba", obo));  //true
+        System.out.println(Palindrome.isPalindrome("abcdefgfedcba", obo));  //false
         System.out.println(Palindrome.isPalindrome("", obo));               //true
         System.out.println(Palindrome.isPalindrome("a", obo));              //true
-        System.out.println(Palindrome.isPalindrome("abcdeffedcba", obo));   //true
+        System.out.println(Palindrome.isPalindrome("abcdeffedcba", obo));   //false
         System.out.println(Palindrome.isPalindrome("abcdefgifedcba", obo)); //false
         System.out.println(Palindrome.isPalindrome("flake", obo));          //true
         System.out.println(Palindrome.isPalindrome("aceghfdb", obo));       //true
-        System.out.println(Palindrome.isPalindrome("abefhgdc",obt));        //true
-        System.out.println(Palindrome.isPalindrome("abefzgdc",obt));        //false
+        System.out.println(Palindrome.isPalindrome("abefhgdc", obt));       //true
+        System.out.println(Palindrome.isPalindrome("abefzgdc", obt));       //false
 
     }
 }
