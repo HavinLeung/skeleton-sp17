@@ -2,7 +2,7 @@
 /**
  * Created by havinleung on 2017-06-27.
  */
-public class ArrayDeque<Item> {
+public class ArrayDeque<Item> implements Deque<Item> {
     private Item[] list;
     private int size;
     private int first;
@@ -22,8 +22,9 @@ public class ArrayDeque<Item> {
     /**
      * Adds an item to the front of the Deque.
      **/
+    @Override
     public void addFirst(Item y) {
-        checksize();
+        checkSize();
         if (isEmpty()) {
             //initialise
             list[0] = y;
@@ -40,8 +41,9 @@ public class ArrayDeque<Item> {
     /**
      * Adds an item to the back of the Deque.
      **/
+    @Override
     public void addLast(Item y) {
-        checksize();
+        checkSize();
         if (isEmpty()) {
             //initialise
             list[0] = y;
@@ -58,6 +60,7 @@ public class ArrayDeque<Item> {
     /**
      * Returns true if deque is empty, false otherwise.
      **/
+    @Override
     public boolean isEmpty() {
         return (size == 0);
     }
@@ -65,6 +68,7 @@ public class ArrayDeque<Item> {
     /**
      * Returns the number of items in the Deque.
      **/
+    @Override
     public int size() {
         return size;
     }
@@ -72,6 +76,7 @@ public class ArrayDeque<Item> {
     /**
      * Prints the items in the Deque from first to last, separated by a space.
      **/
+    @Override
     public void printDeque() {
         int index = first;
         while (index != last) { //runs loop until index = last
@@ -86,6 +91,7 @@ public class ArrayDeque<Item> {
     /**
      * Removes and returns the item at the front of the Deque. If no such item exists, returns null.
      **/
+    @Override
     public Item removeFirst() {
         if (isEmpty()) {
             return null;
@@ -94,13 +100,14 @@ public class ArrayDeque<Item> {
         list[first] = null;
         first = moveIndexRight(first);
         size--;
-        checksize();
+        checkSize();
         return x;
     }
 
     /**
      * Removes and returns the item at the back of the Deque. If no such item exists, returns null.
      **/
+    @Override
     public Item removeLast() {
         if (isEmpty()) {
             return null;
@@ -109,7 +116,7 @@ public class ArrayDeque<Item> {
         list[last] = null;
         last = moveIndexLeft(last);
         size--;
-        checksize();
+        checkSize();
         return x;
     }
 
@@ -117,6 +124,7 @@ public class ArrayDeque<Item> {
      * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
      * If no such item exists, returns null. Must not alter the deque!
      **/
+    @Override
     public Item get(int index) {
         if (index < 0 || index >= size) {
             return null;
@@ -160,7 +168,7 @@ public class ArrayDeque<Item> {
         list = x;
     }
 
-    private void checksize() {
+    private void checkSize() {
         if (size != 0 && size < (list.length / 4)) {
             //only using 25% or less of the array
             downsize();
