@@ -1,4 +1,6 @@
-/** A client that uses the synthesizer package to replicate a plucked guitar string sound */
+/**
+ * A client that uses the synthesizer package to replicate a plucked guitar string sound
+ */
 public class GuitarHeroLite {
 
     public static void main(String[] args) {
@@ -6,7 +8,7 @@ public class GuitarHeroLite {
         String keyboard = "q2we4r5ty7u8i9op-[=zxdcfvgbnjmk,.;/' ";
         synthesizer.GuitarString[] strings = new synthesizer.GuitarString[keyboard.length()];
         for (int i = 0; i < keyboard.length(); i++) {
-            strings[i] = new synthesizer.GuitarString(440*Math.pow(2, (double)(i-24)/12));
+            strings[i] = new synthesizer.GuitarString(440 * Math.pow(2, (double) (i - 24) / 12));
         }
 
         while (true) {
@@ -15,7 +17,7 @@ public class GuitarHeroLite {
             if (StdDraw.hasNextKeyTyped()) {
                 char key = StdDraw.nextKeyTyped();
                 int index = keyboard.indexOf(key);
-                if(!(index < 0 || index >= keyboard.length())){
+                if (!(index < 0 || index >= keyboard.length())) {
                     strings[index].pluck();
                 }
 
@@ -23,7 +25,7 @@ public class GuitarHeroLite {
 
         /* compute the superposition of samples */
             double sample = 0;
-            for(synthesizer.GuitarString gtrStr: strings){
+            for (synthesizer.GuitarString gtrStr : strings) {
                 sample += gtrStr.sample();
                 gtrStr.tic();
             }
